@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <table cellpadding="5" cellspacing="0" border="1">
+     <tr>
+         <th>id</th>
+         <th>periode</th>
+         <th>tanggal</th>
+         <th>nama_user</th>
+         <th>pos</th>
+         <th>dekripsi</th>
+         <th>budget</th>
+         <th>transaksi</th>
+     </tr>
+     <tr th:each=" daftarTrans: ${trans}">
+         <td th:text="${daftarTrans.getId()}"></td>
+         <td th:text="${daftarTrans.getPeriode().getId()}"></td>
+         <td th:text="${daftarTrans.getTanggal()}"></td>
+         <td th:text="${daftarTrans.getUser().getNama()}"></td>
+         <td th:text="${daftarTrans.getPos()}"></td>
+         <td th:text="${daftarTrans.getDeskripsi()}"></td>
+         <td th:switch="${daftarTrans.getStatus()}">
+             <span th:case="0" th:text="${daftarTrans.getNominal()}"></span>
+         </td>
+         <td th:switch="${daftarTrans.getStatus()}">
+             <span th:case="1" th:text="${daftarTrans.getNominal()}"></span>
+         </td>
+     </tr>
+
+ </table>
+</body>
+</html>
